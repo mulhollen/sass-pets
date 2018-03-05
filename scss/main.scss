@@ -1,0 +1,282 @@
+
+
+$heading: 'Source Code Pro', monospace;
+$subheading: 'Lato', sans-serif;
+$bodytext: 'Poppins', sans-serif;
+$primary: #3E642D;
+$secondary: #0564C1;
+$teriary: #fff;
+$headdingSize: 60px;
+$subheaddingSize: 5px;
+$navSize: 3px;
+$pSize: 30px;
+
+h1 {
+    font-family: $heading;
+    color: $primary;
+    size: $headdingSize;
+}
+
+h2 {
+    font-family: $subheading;
+    size: $subheaddingSize !important;
+    font-weight: lighter;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.underline {
+    border-bottom: 1px solid $primary;
+}
+
+p {
+    font-family: $bodytext;
+    size: $pSize;
+}
+
+// paralax
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body { 
+    margin:0 0 -200px 0;
+    padding:0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.slide {
+    position: relative;
+    padding: 25vh 10%;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    transform-style: inherit;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 35%;
+    width: 320px;
+    height: 240px;
+    transform: translateZ(.25px) scale(.75) translateX(-94%) translateY(-100%) rotate(2deg);
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+}
+
+img:last-of-type {
+    transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
+}
+
+.slide:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.title {
+    width: 50%;
+    padding: 5%;  
+    background: $teriary;
+}
+
+
+.slide-one {
+    z-index: 0;
+    .title { 
+    border: 1px solid $secondary;
+    margin-left: auto;
+    margin-right: 0;
+    }
+}
+
+#slide1:before {
+    background-image: url("../img/dog-on-bed.jpg");
+    transform: translateZ(-1px) scale(2);
+}
+
+.slide-two .title {
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: -10%;
+}
+
+#slide2 {
+    background-color: white;
+    z-index:2;
+}
+
+.slide-three .title {
+    border: 1px solid $secondary;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#slide3:before {
+    background-image: url("../img/laurel.jpg");
+    transform: translateZ(-1px) scale(2);
+}
+
+#slide4 {
+    background: white;
+    position: relative;
+    padding: 0 5% 20vh 5%;
+    min-height: 20vh;
+    width: 100vw;
+    box-sizing: border-box;
+    transform-style: inherit;
+
+}
+
+.slide, .slide:before {
+    background: 50% 50% / cover;  
+}
+
+.header {
+    text-align: center;
+}
+
+#title {
+    background-image: url("../img/doghouse.jpg");
+    z-index:2;
+}
+
+#title h1 {
+    transform: translateZ(.25px) scale(.75);
+    transform-origin: 75% 1000%;
+    
+    background-color: white;
+    width: 25%;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 0 10px 0;
+}
+
+// flexbox
+.row {
+    display: flex;
+    display: -webkit-flex;
+    width: 160%
+}
+.column {
+    margin-left: 150px;
+}
+
+.space-between {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+}
+
+// dropdown
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+}    .select select {
+        font-family: $bodytext;
+        display: inline-block;
+        width: 100%;
+        padding: 10px 15px;
+        outline: 0;
+        border: 1px solid $secondary;
+        border-radius: 7px;
+        background: #ffffff;
+        color: #000000;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: $primary;
+            opacity: .5;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border: solid #7B7B7B;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #CCCCCC;
+}
+
+// sticky scroll header
+
+nav a {
+    size: $navSize;
+    padding: 0 10px 0 10px;
+    color: black;
+    text-decoration: none;
+}
+
+nav a:hover,
+nav a:active {
+    color: $secondary;
+    border-bottom: 1px solid $secondary;
+}
+
+.stickyHeader {
+    z-index: 100;
+    width: 100vw;
+    margin-bottom: -25vh;
+    background-color: $teriary;
+    color: black;
+    box-shadow: 0 8px 6px -6px #707070;
+    padding: 10px 16px;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+}
+
+/* Page content */
+.content {
+    padding: 16px;
+}
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    // width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+    padding-top: 102px;
+}
